@@ -1,10 +1,6 @@
 # isucon
 
 ```
-top
+1. topコマンドを実行しながらベンチマーカーを実行
 
-top -l 1 | grep Mem 
-    freeと同じ
-
-ab -> Apache Bench
 ```
