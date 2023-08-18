@@ -38,7 +38,19 @@ apt install wget
 wget https://github.com/tkuchiki/alp/releases/download/v1.0.12/alp_linux_arm64.tar.gz
 tar -zxvf alp_linux_arm64.tar.gz
 install alp /usr/local/bin/alp
+```
+
+alp実行
+```
 cat access.log | alp json
+```
+レスポンスタイムの合計が多い順↓
+```
+alp json \
+	--sort sum -r \
+	-m "/posts/[0-9]+,@\w+,/image/\d+" \
+	-o count,method,uri,min,avg,max,sum \
+	< access.log
 ```
 
 ## 解析方法
@@ -46,12 +58,15 @@ cat access.log | alp json
 
 1. topコマンドを実行しながらベンチマーカーを実行
 
+1. alpコマンドを使用し
+
 
 ## 改善案
 - クエリのN+1問題
     - explainコマンド
     - indexを張る
         - force index
+    - join（N*N→N）【498P】
     
 - nginxの静的コンテンツキャッシュ配信
 - unicorn workerプロセスの設定
