@@ -13,7 +13,7 @@ my.cnfを書き換える
 
 mysqldumpslowのインストール
 ```
-brew install mysqldumpslow
+brew install mysql
 mysqldumpslow <logファイル>
 ```
 
